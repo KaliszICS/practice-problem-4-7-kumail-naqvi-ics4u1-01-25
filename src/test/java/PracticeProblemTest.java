@@ -3,12 +3,12 @@ import org.junit.jupiter.api.*;
 import java.io.*;
 
 public class PracticeProblemTest {
-        // ==================== PROBLEM 1: Bank Account Withdrawal ====================
+        // ==================== PROBLEM 1: Bank Account PracticeProblem.withdrawal ====================
     
     @Test
     public void testWithdrawValidAmount() {
         try {
-            double result = withdraw(50.0, 100.0);
+            double result = PracticeProblem.withdraw(50.0, 100.0);
             assertEquals(50.0, result, 0.01);
         } catch (NoSuchMethodError | Exception e) {
             fail("withdraw method not implemented or threw unexpected exception: " + e.getMessage());
@@ -18,7 +18,7 @@ public class PracticeProblemTest {
     @Test
     public void testWithdrawNegativeAmount() {
         try {
-            withdraw(-10.0, 100.0);
+            PracticeProblem.withdraw(-10.0, 100.0);
             fail("Should have thrown IllegalArgumentException for negative amount");
         } catch (IllegalArgumentException e) {
             assertTrue("Exception message should mention positive or negative", 
@@ -34,7 +34,7 @@ public class PracticeProblemTest {
     @Test
     public void testWithdrawZeroAmount() {
         try {
-            withdraw(0.0, 100.0);
+            PracticeProblem.withdraw(0.0, 100.0);
             fail("Should have thrown IllegalArgumentException for zero amount");
         } catch (IllegalArgumentException e) {
             // Test passes
@@ -48,7 +48,7 @@ public class PracticeProblemTest {
     @Test
     public void testWithdrawInsufficientFunds() {
         try {
-            withdraw(150.0, 100.0);
+            PracticeProblem.withdraw(150.0, 100.0);
             fail("Should have thrown IllegalStateException for insufficient funds");
         } catch (IllegalStateException e) {
             assertTrue("Exception message should mention funds or balance", 
@@ -66,7 +66,7 @@ public class PracticeProblemTest {
     @Test
     public void testValidateAgeValid() {
         try {
-            boolean result = validateAge(25);
+            boolean result = PracticeProblem.validateAge(25);
             assertTrue("Valid age should return true", result);
         } catch (NoSuchMethodError | Exception e) {
             fail("validateAge method not implemented or threw unexpected exception: " + e.getMessage());
@@ -76,7 +76,7 @@ public class PracticeProblemTest {
     @Test
     public void testValidateAgeNegative() {
         try {
-            validateAge(-5);
+            PracticeProblem.validateAge(-5);
             fail("Should have thrown IllegalArgumentException for negative age");
         } catch (IllegalArgumentException e) {
             assertTrue("Exception message should mention negative", 
@@ -91,7 +91,7 @@ public class PracticeProblemTest {
     @Test
     public void testValidateAgeTooHigh() {
         try {
-            validateAge(200);
+            PracticeProblem.validateAge(200);
             fail("Should have thrown IllegalArgumentException for unrealistic age");
         } catch (IllegalArgumentException e) {
             assertTrue("Exception message should mention realistic or maximum", 
@@ -107,7 +107,7 @@ public class PracticeProblemTest {
     @Test
     public void testValidateAgeBoundary() {
         try {
-            boolean result = validateAge(150);
+            boolean result = PracticeProblem.validateAge(150);
             assertTrue("Age of 150 should be valid", result);
         } catch (NoSuchMethodError | Exception e) {
             fail("validateAge method not implemented or threw unexpected exception: " + e.getMessage());
@@ -120,7 +120,7 @@ public class PracticeProblemTest {
     public void testGetElementValid() {
         try {
             int[] nums = {10, 20, 30};
-            int result = getElement(nums, 1);
+            int result = PracticeProblem.getElement(nums, 1);
             assertEquals(20, result);
         } catch (NoSuchMethodError | Exception e) {
             fail("getElement method not implemented or threw unexpected exception: " + e.getMessage());
@@ -130,7 +130,7 @@ public class PracticeProblemTest {
     @Test
     public void testGetElementNullArray() {
         try {
-            getElement(null, 0);
+            PracticeProblem.getElement(null, 0);
             fail("Should have thrown NullPointerException for null array");
         } catch (NullPointerException e) {
             assertTrue("Exception message should mention null or array", 
@@ -148,7 +148,7 @@ public class PracticeProblemTest {
     public void testGetElementIndexTooHigh() {
         try {
             int[] nums = {10, 20, 30};
-            getElement(nums, 5);
+            PracticeProblem.getElement(nums, 5);
             fail("Should have thrown IndexOutOfBoundsException for index >= length");
         } catch (IndexOutOfBoundsException e) {
             // Test passes
@@ -163,7 +163,7 @@ public class PracticeProblemTest {
     public void testGetElementNegativeIndex() {
         try {
             int[] nums = {10, 20, 30};
-            getElement(nums, -1);
+            PracticeProblem.getElement(nums, -1);
             fail("Should have thrown IndexOutOfBoundsException for negative index");
         } catch (IndexOutOfBoundsException e) {
             // Test passes
@@ -179,7 +179,7 @@ public class PracticeProblemTest {
     @Test
     public void testValidateEmailValid() {
         try {
-            String result = validateEmail("user@example.com");
+            String result = PracticeProblem.validateEmail("user@example.com");
             assertEquals("user@example.com", result);
         } catch (NoSuchMethodError | Exception e) {
             fail("validateEmail method not implemented or threw unexpected exception: " + e.getMessage());
@@ -189,7 +189,7 @@ public class PracticeProblemTest {
     @Test
     public void testValidateEmailWithSpaces() {
         try {
-            String result = validateEmail("  user@example.com  ");
+            String result = PracticeProblem.validateEmail("  user@example.com  ");
             assertEquals("user@example.com", result.trim());
         } catch (NoSuchMethodError | Exception e) {
             fail("validateEmail method not implemented or threw unexpected exception: " + e.getMessage());
@@ -199,7 +199,7 @@ public class PracticeProblemTest {
     @Test
     public void testValidateEmailNull() {
         try {
-            validateEmail(null);
+            PracticeProblem.validateEmail(null);
             fail("Should have thrown IllegalArgumentException for null email");
         } catch (IllegalArgumentException e) {
             assertTrue("Exception message should mention empty or null", 
@@ -215,7 +215,7 @@ public class PracticeProblemTest {
     @Test
     public void testValidateEmailEmpty() {
         try {
-            validateEmail("");
+            PracticeProblem.validateEmail("");
             fail("Should have thrown IllegalArgumentException for empty email");
         } catch (IllegalArgumentException e) {
             assertTrue("Exception message should mention empty", 
@@ -230,7 +230,7 @@ public class PracticeProblemTest {
     @Test
     public void testValidateEmailNoAtSymbol() {
         try {
-            validateEmail("notanemail");
+            PracticeProblem.validateEmail("notanemail");
             fail("Should have thrown IllegalArgumentException for missing @ symbol");
         } catch (IllegalArgumentException e) {
             assertTrue("Exception message should mention invalid or format", 
@@ -246,7 +246,7 @@ public class PracticeProblemTest {
     @Test
     public void testValidateEmailNoDotAfterAt() {
         try {
-            validateEmail("missing@domain");
+            PracticeProblem.validateEmail("missing@domain");
             fail("Should have thrown IllegalArgumentException for missing dot after @");
         } catch (IllegalArgumentException e) {
             assertTrue("Exception message should mention invalid or format", 
