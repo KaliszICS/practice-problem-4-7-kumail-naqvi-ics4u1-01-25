@@ -13,7 +13,7 @@ public class PracticeProblem {
      */
     public static boolean validateAge(int age) {
         if (age < 0) {
-            throw new IllegalArgumentException("Age cannot be negative");
+            throw new IllegalArgumentException("Age cant be negative");
         }
         if (age > 150) {
             throw new IllegalArgumentException("Age must be realistic");
@@ -51,7 +51,7 @@ public class PracticeProblem {
      */
     public static int getElement(int[] array, int index) {
         if (array == null) {
-            throw new NullPointerException("Array cannot be null");
+            throw new NullPointerException("Array cant be null");
         }
         if (index < 0 || index >= array.length) {
             throw new IndexOutOfBoundsException("Index out of bounds: " + index);
@@ -67,7 +67,7 @@ public class PracticeProblem {
      */
     public static String validateEmail(String email) {
         if (email == null || email.trim().isEmpty()) {
-            throw new IllegalArgumentException("Email cannot be empty");
+            throw new IllegalArgumentException("Email cant be empty");
         }
         String trimmed = email.trim();
         int atIndex = trimmed.indexOf('@');
